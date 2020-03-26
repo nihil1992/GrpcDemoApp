@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Protos";
+
+package count;
+
+service Cltstream{
+	//Client Streaming RPC 
+	rpc AccumulateCount (stream CounterRequest) returns (CounterReply);
+
+}
+
+message CounterRequest {
+  int32 count = 1;
+}
+
+message CounterReply {
+  int32 count = 1;
+}
